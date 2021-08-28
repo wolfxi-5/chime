@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" @click="feedback">
       <div class="col-xs-1">
         <img src="~assets/img/profile/feedback.png" alt="" />
       </div>
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" @click="share">
       <div class="col-xs-1">
         <img src="~assets/img/profile/share.png" alt="" />
       </div>
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" @click="about">
       <div class="col-xs-1">
         <img src="~assets/img/profile/about.png" alt="" />
       </div>
@@ -53,8 +53,24 @@
 </template>
 
 <script>
+import { poplayer } from "./js/prompt-box";
+
 export default {
-  name: "ProfileList"
+  name: "ProfileList",
+  methods: {
+    feedback() {
+      poplayer.prompt1('','确定','取消','请输入反馈信息',true,function(data){
+				document.body.removeChild(document.getElementById("pop_tip")); // 关闭上一个弹层
+				poplayer.msg('感谢你的建议');
+			});
+    },
+    share() {
+      poplayer.confirm('分享一下','确定','取消',window.location.href);
+    },
+    about() {
+      poplayer.alert('这就是一个平平无奇的app');
+    }
+  }
 };
 </script>
 
@@ -65,7 +81,7 @@ export default {
 }
 .ProfileList .row {
   padding-left: 1rem;
-  padding-top:0.5rem;
+  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 .ProfileList .next-right {
