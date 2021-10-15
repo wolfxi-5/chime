@@ -72,6 +72,10 @@ export default {
 body {
   height: 100%;
 } */
+.Piano {
+  width: 90%;
+  height: 80%;
+}
 .Piano body {
   padding: 0;
   margin: 0;

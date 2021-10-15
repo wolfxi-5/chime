@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style>
-.profile-navbar {
+.profile .profile-navbar {
   color: black;
 }
 </style>
