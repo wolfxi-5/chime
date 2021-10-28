@@ -7,8 +7,10 @@ const Forum = () => import('../views/forum/Forum.vue');
 const Profile = () => import('../views/profile/Profile.vue');
 
 const Log = () => import('../views/profile/details/Log.vue');
-const LogEnter = () => import('../views/profile/details/LogEnter.vue');
-const LogEnroll = () => import('../views/profile/details/LogEnroll.vue');
+
+const DetailOne = () => import('../views/forum/childcomps/details/detailOne.vue');
+const DetailTwo = () => import('../views/forum/childcomps/details/detailTwo.vue');
+const DetailThree = () => import('../views/forum/childcomps/details/detailThree.vue');
 
 Vue.use(VueRouter)
 
@@ -47,6 +49,27 @@ const routes = [{
   {
     path: '/log',
     component: Log,
+    meta: {
+      footshow: false
+    }
+  },
+  {
+    path: '/detailone',
+    component: DetailOne,
+    meta: {
+      footshow: false
+    }
+  },
+  {
+    path: '/detailtwo',
+    component: DetailTwo,
+    meta: {
+      footshow: false
+    }
+  },
+  {
+    path: '/detailthree',
+    component: DetailThree,
     meta: {
       footshow: false
     }

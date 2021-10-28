@@ -1,15 +1,17 @@
 <template>
   <div class="Forum">
-    <nav-bar class="profile-navbar">
-      <div slot="center">论坛</div>
-    </nav-bar>
+    <div class="forum-stick">
+      <nav-bar class="profile-navbar">
+        <div slot="center">论坛</div>
+      </nav-bar>
 
-    <div class="change">
-      <div class="col-xs-4 col-xs-offset-2" @click="changeModeA">
-        <p :class="{ active: isActive, unactive: !isActive }">推荐</p>
-      </div>
-      <div class="col-xs-4" @click="changeModeB">
-        <p :class="{ active: !isActive, unactive: isActive }">收藏</p>
+      <div class="change">
+        <div class="col-xs-2" @click="changeModeA">
+          <p :class="{ active: isActive, unactive: !isActive }">推荐</p>
+        </div>
+        <div class="col-xs-2  col-xs-offset-1" @click="changeModeB">
+          <p :class="{ active: !isActive, unactive: isActive }">收藏</p>
+        </div>
       </div>
     </div>
 
@@ -25,10 +27,10 @@
 </template>
 
 <script>
-import NavBar from "components/common/navbar/NavBar"
+import NavBar from "components/common/navbar/NavBar";
 
-import Commend from './childcomps/commend/Commend'
-import Collect from './childcomps/collect/Collect'
+import Commend from "./childcomps/Commend";
+import Collect from "./childcomps/Collect";
 
 export default {
   name: "Forum",
@@ -54,28 +56,47 @@ export default {
 </script>
 
 <style>
-.Forum .profile-navbar {
+.Forum {
+  width: 100%;
+}
+.Forum .forum-stick {
+  height: 74px;
+}
+.Forum .forum-stick .profile-navbar {
   font-family: "宋体";
-  font-size: 140%;
-  color: rgb(105, 105, 105);
+  font-size: 120%;
+  /* color: rgb(105, 105, 105); */
+  color: black;
   font-weight: bold;
-  background-image: radial-gradient(circle, #eee9e9, #fffafa);
+  /* background-image: radial-gradient(circle, #eee9e9, #fffafa); */
+  position: fixed;
+  top: 0px;
+  background-color: white;
+}
+.Forum .forum-stick .change {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  height: 30px;
+  position: fixed;
+  top: 30px;
+  background-color: white;
+}
+.Forum .forum-stick .change .active {
+  padding-bottom: 1rem;
+  font-weight: bolder;
+  border-color: transparent;
+  border-bottom: 2.5px solid black !important;
+  background-color: transparent;
+  width: 60px;
+}
+.Forum .forum-stick .change .unactive {
+  margin-bottom: 1rem;
+  width: 60px;
 }
 
-.Forum .change {
-  text-align: center;
-}
-.Forum .change .active {
-  padding-bottom: 1rem;
-  color: #4c82ff;
-  border-color: transparent;
-  border-bottom: 2px solid #4c82ff !important;
-  background-color: transparent;
-}
-.Forum .change .unactive {
-  margin-bottom: 1rem;
-}
 .Forum .forum-content {
-  padding: 2.5rem;
+  padding: 0.5rem 0 0 0;
+  background-color: rgb(246, 246, 246);
 }
 </style>

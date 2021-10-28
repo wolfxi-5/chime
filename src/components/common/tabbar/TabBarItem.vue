@@ -17,6 +17,10 @@ export default {
       type: String,
       default: "red",
     },
+    pattern: {
+      type:String,
+      default:"replace",
+    }
   },
   data() {
     return {
@@ -33,7 +37,11 @@ export default {
   },
   methods: {
     itemClick() {
-      this.$router.replace(this.path).catch((err) => err);
+      if(this.pattern == "replace") {
+        this.$router.replace(this.path).catch((err) => err);
+      } else {
+        this.$router.push(this.path);
+      }
     },
   },
 };

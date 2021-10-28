@@ -1,7 +1,7 @@
 <template>
   <div>
       <tab-bar>
-      <tab-bar-item path="/home">
+      <tab-bar-item path="/home" pattern="push">
         <img slot="item-icon" src="~assets/img/tabbar/play.png" alt="" />
         <img slot="item-icon-active" src="~assets/img/tabbar/play_active.png" alt="" />
         <div slot="item-text">演奏</div>
