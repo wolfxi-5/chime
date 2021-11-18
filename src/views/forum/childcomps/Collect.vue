@@ -1,7 +1,8 @@
 <template>
   <div class="Collect">
     <div class="collect-none">
-      快去收藏你喜欢的内容吧！！
+
+      <p>暂无收藏的内容</p>
     </div>
   </div>
 </template>
@@ -18,6 +19,10 @@ export default {
 }
 .Collect .collect-none {
   height: calc(100vh - 120px);
-  background-color: rgb(246, 246, 246);
+}
+.Collect .collect-none p {
+  padding-top: 40% ;
+  text-align: center;
+  color: black;
 }
 </style>

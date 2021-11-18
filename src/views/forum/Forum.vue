@@ -1,7 +1,7 @@
 <template>
   <div class="Forum">
     <div class="forum-stick">
-      <nav-bar class="profile-navbar">
+      <nav-bar class="forum-navbar">
         <div slot="center">论坛</div>
       </nav-bar>
 
@@ -58,11 +58,12 @@ export default {
 <style>
 .Forum {
   width: 100%;
+  background-color: rgb(246, 246, 246);
 }
 .Forum .forum-stick {
   height: 74px;
 }
-.Forum .forum-stick .profile-navbar {
+.Forum .forum-stick .forum-navbar {
   font-family: "宋体";
   font-size: 120%;
   /* color: rgb(105, 105, 105); */

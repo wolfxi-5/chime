@@ -56,6 +56,10 @@ export default {
 </script>
 
 <style>
+.Details {
+  background-color: rgb(246, 246, 246);
+}
+/* header */
 .Details .header {
   height: 40px;
 }
@@ -65,8 +69,8 @@ export default {
   top: 0px;
   background-color: white;
   box-sizing: content-box;
-  border-bottom: 0.2px solid rgb(204, 204, 204);
-  box-shadow: 0px 0px 1px #a8a8a8;
+  border-bottom: 0.1px solid rgb(231, 231, 231);
+  box-shadow: 0px 0px 1px #e0e0e0;
 }
 .Details .header .stick img {
   padding-top: 10px;
