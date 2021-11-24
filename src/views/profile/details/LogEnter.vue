@@ -5,7 +5,7 @@
         <img src="~assets/img/profile/icon-phone.png" alt="" />
       </div>
       <div class="col-xs-8">
-        <input type="text" id="phoneNumber" placeholder="输入电话号" />
+        <input type="text" id="phoneNumber" placeholder="输入电话号" style="color: black"/>
       </div>
     </div>
 
@@ -14,7 +14,7 @@
         <img src="~assets/img/profile/icon-lock.png" alt="" />
       </div>
       <div class="col-xs-9">
-        <input type="password" id="password" placeholder="输入密码" />
+        <input type="password" id="password" placeholder="输入密码" style="color: black"/>
       </div>
     </div>
 

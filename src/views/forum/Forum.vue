@@ -66,10 +66,8 @@ export default {
 .Forum .forum-stick .forum-navbar {
   font-family: "宋体";
   font-size: 120%;
-  /* color: rgb(105, 105, 105); */
   color: black;
   font-weight: bold;
-  /* background-image: radial-gradient(circle, #eee9e9, #fffafa); */
   position: fixed;
   top: 0px;
   background-color: white;

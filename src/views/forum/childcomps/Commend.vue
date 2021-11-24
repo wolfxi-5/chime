@@ -12,9 +12,15 @@
       </div>
       <div class="function">
         <ul>
-          <li><img src="~/assets/img/forum/commend.png" /><span>120</span></li>
-          <li><img src="~/assets/img/forum/review.png" /><span>32</span></li>
-          <li><img src="~/assets/img/forum/transmit.png" /><span>12</span></li>
+          <li>
+            <img :src="imgCommend" @click="commend($event)" /><span>0</span>
+          </li>
+          <li>
+            <img :src="imgReview" @click="review($event)" /><span>0</span>
+          </li>
+          <li>
+            <img :src="imgTransmit" @click="transmit($event)" /><span>0</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -30,9 +36,15 @@
       </div>
       <div class="function">
         <ul>
-          <li><img src="~/assets/img/forum/commend.png" /><span>172</span></li>
-          <li><img src="~/assets/img/forum/review.png" /><span>4</span></li>
-          <li><img src="~/assets/img/forum/transmit.png" /><span>18</span></li>
+          <li>
+            <img :src="imgCommend" @click="commend($event)" /><span>0</span>
+          </li>
+          <li>
+            <img :src="imgReview" @click="review($event)" /><span>0</span>
+          </li>
+          <li>
+            <img :src="imgTransmit" @click="transmit($event)" /><span>0</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -49,9 +61,35 @@
       </div>
       <div class="function">
         <ul>
-          <li><img src="~/assets/img/forum/commend.png" /><span>263</span></li>
-          <li><img src="~/assets/img/forum/review.png" /><span>1</span></li>
-          <li><img src="~/assets/img/forum/transmit.png" /><span>1</span></li>
+          <li>
+            <img :src="imgCommend" @click="commend($event)" /><span>0</span>
+          </li>
+          <li>
+            <img :src="imgReview" @click="review($event)" /><span>0</span>
+            <van-popup
+              v-model="show"
+              closeable
+              close-icon="close"
+              position="bottom"
+              :style="{ height: '70%' }"
+            >
+              <div class="review-content">
+                暂无评论
+              </div>
+              <div class="review-input">
+                <van-search
+                  v-model="value"
+                  show-action
+                  placeholder="请输入评论内容"
+                  @search="onSearch"
+                  @cancel="onCancel"
+                />
+              </div>
+            </van-popup>
+          </li>
+          <li>
+            <img :src="imgTransmit" @click="transmit($event)" /><span>0</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -61,9 +99,35 @@
 </template>
 
 <script>
+import imgCommend from "@/assets/img/forum/commend.png";
+import imgReview from "@/assets/img/forum/review.png";
+import imgTransmit from "@/assets/img/forum/transmit.png";
+import imgCommendRed from "@/assets/img/forum/commendRed.png";
+import imgTransmitRed from "@/assets/img/forum/transmitRed.png";
+
+import { Toast } from "vant";
+
 export default {
   name: "Commend",
+  data() {
+    return {
+      imgCommend,
+      imgReview,
+      imgTransmit,
+      imgCommendRed,
+      imgTransmitRed,
+      show: false,
+      value: ""
+    };
+  },
   methods: {
+    onSearch(val) {
+      Toast(val);
+    },
+    onCancel() {
+      Toast("取消");
+    },
+    // 点击进入详情页面
     goInDetailOne() {
       this.$router.push("/detailone");
     },
@@ -72,6 +136,34 @@ export default {
     },
     goInDetailThree() {
       this.$router.push("/detailthree");
+    },
+    // 点赞，收藏，评论
+    commend(event) {
+      let obj = event.srcElement;
+      let obj2 = event.currentTarget.nextElementSibling;
+      let number = obj2.innerHTML;
+      if (obj.src === imgCommend) {
+        obj.src = imgCommendRed;
+        obj2.innerHTML = ++number;
+      } else {
+        obj.src = imgCommend;
+        obj2.innerHTML = --number;
+      }
+    },
+    review(event) {
+      this.show = true;
+    },
+    transmit(event) {
+      let obj = event.srcElement;
+      let obj2 = event.currentTarget.nextElementSibling;
+      let number = obj2.innerHTML;
+      if (obj.src.indexOf(imgTransmit) != -1) {
+        obj.src = imgTransmitRed;
+        obj2.innerHTML = ++number;
+      } else {
+        obj.src = imgTransmit;
+        obj2.innerHTML = --number;
+      }
     }
   }
 };
@@ -119,6 +211,14 @@ export default {
 }
 .Commend .commend-block .function li {
   flex: 1;
+}
+.Commend .commend-block .function li .review-content {
+  padding: 40% 40%;
+}
+.Commend .commend-block .function li .review-input {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
 }
 .Commend .commend-block .function li img {
   width: 20px;
