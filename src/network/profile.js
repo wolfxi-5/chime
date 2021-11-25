@@ -1,9 +1,17 @@
 import {
-  request
-} from './request'
+  Get,
+  Post,
+  Put,
+  Patch,
+  Delete
+} from "./request";
 
-export function getProfileInitdata() {
-  return request({
-    // url: '/home/multidata'
-  })
+export default {
+  //(url,data)
+  test: (params) => {
+    return Get("/posts", params)
+  },
+  getTest: (params) => {
+    return Get("/posts", params)
+  },
 }

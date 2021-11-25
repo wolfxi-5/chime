@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// axios封装
+import Network from '@/network/profile'
+Vue.prototype.$axios = Network;
+
 //vant
 import {
   Popup,

@@ -28,10 +28,31 @@ export default {
       initdata:null,
     }
   },
-  created () {
-    getProfileInitdata().then(res => {
-      // this.initdata = res.data;
-    })
+  created() {
+    this.getData();
+    this.getOneData();
+  },
+
+  methods: {
+
+    //axios测试
+    getOneData() {
+      let data = {
+        userId:2
+      }
+      this.$axios.test(data)
+        .then((res) => {
+          console.log(res);
+        })
+    },
+     getData() {
+      let data = {}
+      this.$axios.test(data)
+        .then((res) => {
+          console.log(res);
+        })
+    },
+    //axios测试
   }
 };
 </script>
