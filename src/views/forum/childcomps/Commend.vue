@@ -121,12 +121,6 @@ export default {
     };
   },
   methods: {
-    onSearch(val) {
-      Toast(val);
-    },
-    onCancel() {
-      Toast("取消");
-    },
     // 点击进入详情页面
     goInDetailOne() {
       this.$router.push("/detailone");
@@ -152,6 +146,12 @@ export default {
     },
     review(event) {
       this.show = true;
+    },
+    onSearch(val) {
+      Toast(val);
+    },
+    onCancel() {
+      Toast("取消");
     },
     transmit(event) {
       let obj = event.srcElement;

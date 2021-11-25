@@ -40,18 +40,31 @@
           </li>
           <li>
             <img :src="imgReview" @click="review($event)" /><span>0</span>
+            <van-popup
+              v-model="show"
+              closeable
+              close-icon="close"
+              position="bottom"
+              :style="{ height: '70%' }"
+            >
+              <div class="review-content">
+                暂无评论
+              </div>
+              <div class="review-input">
+                <van-search
+                  v-model="value"
+                  show-action
+                  placeholder="请输入评论内容"
+                  @search="onSearch"
+                  @cancel="onCancel"
+                />
+              </div>
+            </van-popup>
           </li>
           <li>
             <img :src="imgTransmit" @click="transmit($event)" /><span>0</span>
           </li>
         </ul>
-      </div>
-    </div>
-
-    <div class="commend">
-      <div class="myCommend">
-        <input type="text" id="mycommend" placeholder="写下你的评论..." />
-        <button type="submit" class="btn btn-default">发表</button>
       </div>
     </div>
   </div>
@@ -72,7 +85,9 @@ export default {
       imgReview,
       imgTransmit,
       imgCommendRed,
-      imgTransmitRed
+      imgTransmitRed,
+      show: false,
+      value: ""
     };
   },
   methods: {
@@ -93,7 +108,15 @@ export default {
         obj2.innerHTML = --number;
       }
     },
-    review(event) {},
+    review(event) {
+      this.show = true;
+    },
+    onSearch(val) {
+      Toast(val);
+    },
+    onCancel() {
+      Toast("取消");
+    },
     transmit(event) {
       let obj = event.srcElement;
       let obj2 = event.currentTarget.nextElementSibling;
@@ -174,6 +197,14 @@ export default {
 }
 .Details .bottom .stick-bottom li {
   flex: 1;
+}
+.Details .bottom .stick-bottom li .review-content {
+  padding: 40% 40%;
+}
+.Details .bottom .stick-bottom li .review-input {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
 }
 .Details .bottom .stick-bottom li img {
   width: 20px;

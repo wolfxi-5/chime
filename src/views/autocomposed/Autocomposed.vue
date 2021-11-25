@@ -6,9 +6,17 @@
       </nav-bar>
     </div>
 
-    <div class="btn-add">
-      <img src="~assets/img/autocomposed/add.png" />
-    </div>
+  <div class="button">
+    <circle-menu type="middle-around" :number="4" animate="animated jello" mask='white' circle :colors="['#3481B8','#87CEFA', '#87CEFA',  '#87CEFA' ,'#87CEFA']">
+      <button type="button" slot="item_btn" style="background-color:#3481B8" class="add-button">
+        +
+      </button>
+      <a slot="item_1" class="fa fa-twitter fa-lg"></a>
+      <a slot="item_2" class="fa fa-weixin fa-lg"></a>
+      <a slot="item_3" class="fa fa-weixin fa-lg">识谱</a>
+      <a slot="item_4" class="fa fa-weixin fa-lg">作曲</a>
+    </circle-menu>
+  </div>
 
     <project></project>
 
@@ -48,18 +56,18 @@ export default {
 }
 
 /* 添加歌曲 */
-.Autocomposed .btn-add img {
-  width: 40px;
-  height: 40px;
+.Autocomposed .add-button {
+  font-size:6.5vh;
+  color: white;
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius:50%;
+  text-align:center;
 }
-.Autocomposed .btn-add {
+.Autocomposed .button {
   position: fixed;
-  bottom: 54px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  border: 1px solid #d1d1d1;
+  bottom: 44px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
